@@ -1,6 +1,9 @@
 import * as mysql from 'mysql';
+import config from '../config';
 import Blogs from './blogs';
-import config from '../config'
+import Authors from './authors';
+import Blogtags from './blogtags'
+
 
 const Connection = mysql.createConnection(config.mysql);
 
@@ -15,5 +18,7 @@ export const Query = (query: string, values?: Array<string | number>) => {
 };
 
 export default {
-    Blogs
+    Blogs,
+    Authors,
+    Blogtags
 }

@@ -1,15 +1,34 @@
-import { Query } from './';
+import { Query } from './index';
 
-const allBlogs = () => 
-Query(`SELECT Blogs.*, Authors.name FROM Blogs JOIN Authors ON Blogs.authorid = Authors.id`);
+const allBlogs = () => Query(`
+    SELECT blogs.title, blogs.content, authors.name FROM blogs 
+    JOIN authors 
+    ON blogs.authorid = authors.id
+    `);
 
-const oneBlog = (id: number) => Query("SELECT blogs.id, blogs.title, blogs.content, authors.name FROM blogs JOIN authors ON blogs.authorid = authors.id WHERE blogs.id = ?;", [id]);
+const oneBlog = (id: number) => Query(`
+    SELECT blogs.title, blogs.content, authors.name FROM blogs 
+    JOIN authors 
+    ON blogs.authorid = authors.id
+    WHERE blogs.id = ?
+    `, [id]);
 
-const addBlog = (title: string, content: string, authorid: number) => Query("INSERT INTO blogs (title, content, authorid) VALUES (?, ?, ?);", [title, content, authorid]);
+const addBlog = (title: string, content: string, authorid: number) => Query(`
+    INSERT INTO blogs (title, content, authorid)
+    VALUES(?, ?, ?)
+    `, [title, content, authorid]);
 
-const updateBlog = (title: string, content: string) => Query("UPDATE Blogs SET content = ? WHERE blogs.id = ?", [title, content]);
+const updateBlog = (content: string, id: number) => Query(`
+    UPDATE blogs
+    SET content = ?
+    WHERE blogs.id = ?;
+    `, [content, id]);
 
-const deleteBlog = (id: number) => Query(`DELETE FROM Blogs WHERE id = ?`, [id]);
+const deleteBlog = (id: number) => Query(`
+    DELETE FROM Blogs 
+    WHERE id = ?
+    `, 
+    [id]);
 
 export default {
     allBlogs,
