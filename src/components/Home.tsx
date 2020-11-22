@@ -10,8 +10,8 @@ const Home: React.FC<HomeProps> = (props: HomeProps) => {
         (async () => {
             let data = await fetch('/api/blogs');
             let blogs = await data.json();
+            blogs.reverse();
             setBlogs(blogs);
-            console.log(blogs)
         })();
     }, [])
 
@@ -22,7 +22,7 @@ const Home: React.FC<HomeProps> = (props: HomeProps) => {
                     <div className="card-body">
                         <h3 className="card-title">{blog.title}</h3>
                         <h6 className="card-subtitle mb-2 text-muted">{blog.name}</h6>
-                        <p className="card-text">{blog.content}</p>
+                        <p className="home-card-text">{blog.content}</p>
                         <Link to={`/blog/${blog.id}`}> 
                         <button className="btn btn-sm btn-dark">View Blog 
                         </button>

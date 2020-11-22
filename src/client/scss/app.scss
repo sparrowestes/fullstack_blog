@@ -1,6 +1,5 @@
 @import '../../../node_modules/bootstrap/scss/bootstrap.scss';
 
-
 * {
     box-sizing: border-box;
     padding: 0;
@@ -11,54 +10,66 @@ body {
     font-family: 'Lato', sans-serif;
   }
 
-// .home-blog-card {
-//     white-space: nowrap;
-//     overflow: hiden;
-//     text-overflow: ellipsis;
+.home-card-text {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; // max nb lines to show
+  -webkit-box-orient: vertical;
+}
+
+// .home-card {
+//   max-width: 500px;
+//   max-height: auto;
+//   display: flex;
+//   flex-wrap: wrap;
 // }
 
+h1 {
+  color: #fff;
+}
 
-// h1 {
-//   margin: 20px;
-//   color: #fff;
-// }
+h3 {
+  color: black;
+}
 
-// h3 {
-//   margin: 20px;
-//   color: black;
-// }
+p {
+    color: black;
+}
 
-// p {
-//     color: black;
-// }
+ul {
+    list-style-type: none;
+  }
 
-// ul {
-//     list-style-type: none;
-//   }
+  h5 {
+      font-size: 30px;
+      color: black;
+  }
 
-//   h5 {
-//       font-size: 30px;
-//       color: black;
-//   }
-
-// .navbar ul {
-//     display: flex;
-//   }
+.navbar ul {
+    display: flex;
+  }
   
-//   .navbar a {
-//     color: #fff;
-//     padding: 10px;
-//     margin: 0 5px;
-//   }
+  .navbar a {
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+  }
   
-//   .navbar a:hover {
-//     border-bottom: 2px #fff solid;
-//     cursor: pointer;
-//   }
+  // .navbar a:hover {
+  //   border-bottom: 2px #fff solid;
+  //   border-bottom-width: 1px;
+  //   cursor: pointer;
+  // }
   
-//   .navbar .flex {
-//     justify-content: space-between;
-//   }
+  .navbar .flex {
+    justify-content: space-between;
+  }
+
+  .navbar {
+    background-color: black;
+  }
 
 // .container {
 //     display: flex;
@@ -71,23 +82,23 @@ body {
 // }
 
 
-// .btn {
-//   font-size: 15px;
-//     background-color: black;
-//     color: white;
-//     padding: 8px;
-//     text-decoration: none;
-// }
+.btn {
+  font-size: 15px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+}
 
-// .btn-outline {
-//     background-color: transparent;
-//     border: 1px transparent solid;
-// }
+.btn-outline {
+    background-color: transparent;
+    border: 1px transparent solid;
+}
 
-// .btn:hover {
-//     transform: scale(0.98);
-//     cursor: pointer;
-// }
+.btn:hover {
+    transform: scale(0.98);
+    cursor: pointer;
+    color: grey;
+}
 
 // .background {
 //     height: 75px;

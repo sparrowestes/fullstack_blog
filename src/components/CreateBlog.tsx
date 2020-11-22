@@ -70,7 +70,7 @@ const CreateBlog: React.FC<CreateBlogProps> = (props: CreateBlogProps) => {
         },
         blog: {
             title: newBlog.blog.title,
-            content: e.target.value,
+            content: newBlog.blog.content,
             tags: [...newBlog.blog.tags, e.target.value]
         },
     });
@@ -100,14 +100,15 @@ const CreateBlog: React.FC<CreateBlogProps> = (props: CreateBlogProps) => {
                             <input type="text" className="card-title" placeholder="Title?" onChange={handleTitleChange} />
                             <textarea className="card-text" defaultValue={newBlog.blog.content} cols={50} rows={15} onChange={handleContentChange}></textarea>
                             <select multiple={true} value={newBlog.blog.tags} name="tags" id="tag-select" onChange={handleTagChange}>
-                                <option value="coding">coding</option>
-                                <option value="lifestyle">lifestyle</option>
-                                <option value="literature">literature</option>
-                                <option value="tech">tech</option>
-                                <option value="political">political</option>
+                                <option value="meow meow meow">meow meow meow</option>
+                                <option value="outside">outside</option>
+                                <option value="dogs">dogs</option>
+                                <option value="food">food</option>
+                                <option value="feline lifestyle">feline lifestyle</option>
+                                <option value="purr">purr</option>
                             </select>
                         </div>
-                        <button className="btn btn-sm btn-outline-dark float-right mx-1" onClick={PostBlog}>Save</button>
+                        <button className="btn btn-sm btn-dark float-right mx-1" onClick={PostBlog}>Save</button>
                     </div>
                 </div>
             </div>

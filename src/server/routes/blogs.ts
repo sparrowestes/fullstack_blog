@@ -32,13 +32,13 @@ router.get("/:id", async (req: express.Request, res: express.Response) => {
 // POST NEW BLOG AS WELL AS CREATE A NEW AUTHOR
 router.post('/', async (req: express.Request, res: express.Response) => {
     try {
-        const author = req.body.author,
-            blog = req.body.blog,
-            blogtags = req.body.blog.tags
+        const author: { name: string, email: string } = req.body.author,
+            blog: { title: string, content: string, tags: [] } = req.body.blog,
+            blogtags: string[] = req.body.blog.tags;
 
         const newAuthor = await db.Authors.insert(author.name, author.email),
-            newBlog = await db.Blogs.addBlog(blog.title, blog.content, newAuthor.insertId),
-            newBlogTags = await db.Blogtags.insert(newBlog.insertId, blogtags);
+            newBlog = await db.Blogs.addBlog(blog.title, blog.content, newAuthor.insertId);
+            await db.Blogtags.insert(newBlog.insertId, blogtags);
 
         res.status(200).send(`
             author created with id: ${newAuthor.insertId}

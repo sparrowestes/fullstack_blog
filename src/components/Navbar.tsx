@@ -10,8 +10,8 @@ const Navbar: React.FC<INavbarProps> = () => {
                         <h1 className="logo">The Cats Meow</h1>
                         <nav>
                             <ul>
-                                <li><Link to="/"><button className="btn btn-outline mx-3">Home</button></Link></li>
-                                <li><Link to="/blog/create"><button className="btn btn-outline mx-3">Create Blog</button></Link></li>
+                                <li><Link to="/"><button className="btn btn-outline mx-3">View Meows</button></Link></li>
+                                <li><Link to="/blog/create"><button className="btn btn-outline mx-3">Create Meow</button></Link></li>
                             </ul>
                         </nav>
                     </div>
