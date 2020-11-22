@@ -1,6 +1,6 @@
 import { Query } from "./index";
 
-const insert = (blogid: number, tags: []) => {
+const insert = (blogid: number, tags: string[]) => {
     tags.forEach(async (tagName) => {
         const tagId = await Query(`
             select tags.id from tags 
@@ -16,7 +16,13 @@ const insert = (blogid: number, tags: []) => {
 
 const one = (blogid: number) => Query(`call spBlogTags(?)`, [blogid]);
 
+const deleteBlogTags = (blogid: number) => Query(`
+    delete from blogtags
+    where blogtags.blogid = ?
+`, [blogid]);
+
 export default {
     insert,
-    one
+    one,
+    deleteBlogTags
 }

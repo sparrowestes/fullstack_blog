@@ -1,58 +1,39 @@
 import * as React from 'react';
-import { Link } from "react-router-dom";
+import { blog } from '../client/types';
+import { Link } from 'react-router-dom';
 
 
-class App extends React.Component<IAppProps, IAppState> {
-    constructor(props: IAppProps) {
-        super(props);
-        this.state = {
-            blogs: []
-        };
-    }
+const Home: React.FC<HomeProps> = (props: HomeProps) => {
+    const [blogs, setBlogs] = React.useState<blog[]>([]);
 
-    async componentDidMount() {
-        try {
-            let r = await fetch('/api/blogs');
-            let blogs = await r.json();
-            this.setState({ blogs });
-        } catch (error) {
-            console.log(error);
-        }
-    }
+    React.useEffect(() => {
+        (async () => {
+            let data = await fetch('/api/blogs');
+            let blogs = await data.json();
+            setBlogs(blogs);
+            console.log(blogs)
+        })();
+    }, [])
 
-    render() {
-        return (
-            <>
-                <div className="showcase">
-                    <div className="container">
-                        {this.state.blogs.map((blog => (
-                            <div key={blog.id} className="cardBlog">
-                                <div className="container">
-                                    <h5 className="card-title">{blog.title}</h5>
-                                    <div className="container">
-                                        <h3>Author: {blog.name}</h3>
-                                    </div>
-                                    <div className="container">
-                                        <p className="card-text">{blog.content}</p>
-                                    </div>
-                                    <div className="container">
-                                        <div className="space"></div>
-                                        <Link to={`/blogs/${blog.id}/admin`}>
-                                            <button className="btn btn-sm btn-dark">Admin Options</button>
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+    return (
+        <div className="container">
+            {blogs.map(blog => (
+                <div className="shadow card home-blog-card m-3">
+                    <div className="card-body">
+                        <h3 className="card-title">{blog.title}</h3>
+                        <h6 className="card-subtitle mb-2 text-muted">{blog.name}</h6>
+                        <p className="card-text">{blog.content}</p>
+                        <Link to={`/blog/${blog.id}`}> 
+                        <button className="btn btn-sm btn-dark">View Blog 
+                        </button>
+                        </Link>
                     </div>
                 </div>
-            </>
-        )
-    }
-
-
-export interface IAppState {
-    blogs: Array<{ title: string, content: string, id: number, name: string }>;
+            ))}
+        </div>
+    )
 }
 
-export default App;
+interface HomeProps { }
+
+export default Home

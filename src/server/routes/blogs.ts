@@ -20,11 +20,9 @@ router.get("/:id", async (req: express.Request, res: express.Response) => {
     try {
         const id: number = Number(req.params.id);
         const blog = await db.Blogs.oneBlog(id);
-        const blogtags = await db.Blogs.oneBlog(id);
-        res.json({
-            blog: [0],
-            tags: blogtags
-        });
+        const blogtags = await db.Blogtags.one(id);
+        blog[0].tags = blogtags[0]
+        res.json(blog[0]);
     } catch (err) {
         console.log(err);
         res.status(500).send(err);
@@ -69,7 +67,10 @@ router.put('/:id', async (req: express.Request, res: express.Response) => {
 router.delete('/:id', async (req: express.Request, res: express.Response) => {
     try {
         const id: number = Number(req.params.id);
+
+        await db.Blogtags.deleteBlogTags(id);
         await db.Blogs.deleteBlog(id);
+        
         res.send(`blog ${id} was deleted`);
     } catch (err) {
         console.log(err);

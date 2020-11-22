@@ -7,11 +7,11 @@ const Navbar: React.FC<INavbarProps> = () => {
             <div className="background">
                 <div className="navbar">
                     <div className="container flex">
-                        <h1 className="logo">The Cat's Meow Blog</h1>
+                        <h1 className="logo">The Cats Meow</h1>
                         <nav>
                             <ul>
                                 <li><Link to="/"><button className="btn btn-outline mx-3">Home</button></Link></li>
-                                <li><Link to="/blogs/add"><button className="btn btn-outline mx-3">Add Blog</button></Link></li>
+                                <li><Link to="/blog/create"><button className="btn btn-outline mx-3">Create Blog</button></Link></li>
                             </ul>
                         </nav>
                     </div>
