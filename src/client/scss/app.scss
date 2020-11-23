@@ -71,15 +71,15 @@ ul {
     background-color: black;
   }
 
-// .container {
-//     display: flex;
-//     flex-wrap: wrap;
-//     align-items: center;
-//     justify-content: center;
-//     margin-left: 8px;
-//     margin-right: 8px;
-//     margin-bottom: 5px;
-// }
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-bottom: 5px;
+}
 
 
 .btn {
@@ -100,6 +100,11 @@ ul {
     color: grey;
 }
 
+img {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
 // .background {
 //     height: 75px;
 //     background-color: black;
@@ -108,15 +113,17 @@ ul {
 // }
 
 
-// .card {
-//   display: flex;
-//   align-items: center;
-//   align-content: center;
-//   padding: 5px;
-//   flex-wrap: wrap;
-//   margin: 10px;
-//   box-shadow: 6px 7px 14px 0px rgba(0,0,0,0.68);
-// }
+.cardBlog {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 5px;
+  flex-wrap: wrap;
+  margin: 10px;
+  box-shadow: 6px 7px 14px 0px rgba(0,0,0,0.68);
+}
+
+
 
 // .card-text {
 //   color: black;
@@ -127,19 +134,37 @@ ul {
 //   text-size-adjust: 20px;
 // }
 
-// .cardBlog {
-//   display: flex;
-//   align-items: center;
-//   align-content: center;
-//   text-align: center;
-//   height: 500; 
-//   width: 25%;
-//   padding: 5px;
-//   flex-wrap: wrap;
-//   margin: 10px;
-//   background-color: white;
-//   box-shadow: 6px 7px 14px 0px rgba(0,0,0,0.68);
-// }
+.cardBlog {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  height: 350; 
+  width: 25%;
+  padding: 5px;
+  flex-wrap: wrap;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 6px 7px 14px 0px rgba(0,0,0,0.68);
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  background-color: white;
+  padding: 5px;
+  flex-wrap: wrap;
+  margin: 10px;
+  box-shadow: 6px 7px 14px 0px rgba(0,0,0,0.68);
+}
+
+.card-body {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 // .space {
 //   height: 50; 

@@ -18,9 +18,10 @@ const Home: React.FC<HomeProps> = (props: HomeProps) => {
     return (
         <div className="container">
             {blogs.map(blog => (
-                <div className="shadow card home-blog-card m-3">
+                <div className="shadow cardBlog home-blog-card m-3">
                     <div className="card-body">
                         <h3 className="card-title">{blog.title}</h3>
+                        <img src="images/catpawprint.jpg" alt="cat paw silhouette" />
                         <h6 className="card-subtitle mb-2 text-muted">{blog.name}</h6>
                         <p className="home-card-text">{blog.content}</p>
                         <Link to={`/blog/${blog.id}`}> 

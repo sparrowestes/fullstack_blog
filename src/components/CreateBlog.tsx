@@ -92,12 +92,10 @@ const CreateBlog: React.FC<CreateBlogProps> = (props: CreateBlogProps) => {
             <div className="container">
                 <div className="card shadow-lg m-2">
                     <div className="card-body">
-                        <div className="row">
-                            <input type="text" className="card-title" placeholder="Name?" onChange={handleNameChange} />
-                            <input type="text" className="card-title" placeholder="Email?" onChange={handleEmailChange} />
+                            <input type="text" className="card-title" placeholder="name" onChange={handleNameChange} />
+                            <input type="text" className="card-title" placeholder="email" onChange={handleEmailChange} />
                         </div>
-                        <div className="row">
-                            <input type="text" className="card-title" placeholder="Title?" onChange={handleTitleChange} />
+                            <input type="text" className="card-title" placeholder="title" onChange={handleTitleChange} />
                             <textarea className="card-text" defaultValue={newBlog.blog.content} cols={50} rows={15} onChange={handleContentChange}></textarea>
                             <select multiple={true} value={newBlog.blog.tags} name="tags" id="tag-select" onChange={handleTagChange}>
                                 <option value="meow meow meow">meow meow meow</option>
@@ -111,8 +109,6 @@ const CreateBlog: React.FC<CreateBlogProps> = (props: CreateBlogProps) => {
                         <button className="btn btn-sm btn-dark float-right mx-1" onClick={PostBlog}>Save</button>
                     </div>
                 </div>
-            </div>
-        </div>
     )
 }
 
